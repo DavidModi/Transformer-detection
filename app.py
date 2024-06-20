@@ -15,7 +15,7 @@ def load_image(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 # Paths to your images
-background_image_path = "C:\\Users\\Owner\\Downloads\\1000_F_433027896_PoQOnWcXtmgmuvIfA3ye5zrSzDyxDzHS.jpg"
+background_image_path = "C:\\Users\\Owner\\Downloads\\white transformer.jpg"
 
 # Encode images to base64
 background_image_base64 = load_image(background_image_path)
@@ -41,17 +41,34 @@ def load_labels(label_path):
         st.error(f"Failed to load labels from {label_path}. Error: {e}")
         return None
 
-# Custom CSS to add background image
+# Custom CSS to add background image and style text
 st.markdown(
     f"""
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Yellowtail&display=swap');
+    
     .stApp {{
         background: url(data:image/jpg;base64,{background_image_base64});
         background-size: cover;
+        font-family: 'Roboto', sans-serif;
     }}
     .sidebar .sidebar-content {{
         background: url(data:image/jpg;base64,{background_image_base64});
         background-size: cover;
+    }}
+    h1 {{
+        color: yellow;
+        font-family: 'Yellowtail', cursive;
+    }}
+    .sidebar .sidebar-title {{
+        color: yellow;
+        font-family: 'Yellowtail', cursive;
+    }}
+    .sidebar .sidebar-info {{
+        color: black;
+    }}
+    .sidebar .sidebar-error {{
+        color: red;
     }}
     </style>
     """,
